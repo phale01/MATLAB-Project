@@ -1,35 +1,35 @@
-function varargout = LetterDecoder(varargin)
-% LETTERDECODER MATLAB code for LetterDecoder.fig
-%      LETTERDECODER, by itself, creates a new LETTERDECODER or raises the existing
+function varargout = MessageDecoderRank(varargin)
+% MESSAGEDECODERRANK MATLAB code for MessageDecoderRank.fig
+%      MESSAGEDECODERRANK, by itself, creates a new MESSAGEDECODERRANK or raises the existing
 %      singleton*.
 %
-%      H = LETTERDECODER returns the handle to a new LETTERDECODER or the handle to
+%      H = MESSAGEDECODERRANK returns the handle to a new MESSAGEDECODERRANK or the handle to
 %      the existing singleton*.
 %
-%      LETTERDECODER('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in LETTERDECODER.M with the given input arguments.
+%      MESSAGEDECODERRANK('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in MESSAGEDECODERRANK.M with the given input arguments.
 %
-%      LETTERDECODER('Property','Value',...) creates a new LETTERDECODER or raises the
+%      MESSAGEDECODERRANK('Property','Value',...) creates a new MESSAGEDECODERRANK or raises the
 %      existing singleton*.  Starting from the left, property value pairs are
-%      applied to the GUI before LetterDecoder_OpeningFcn gets called.  An
+%      applied to the GUI before MessageDecoderRank_OpeningFcn gets called.  An
 %      unrecognized property name or invalid value makes property application
-%      stop.  All inputs are passed to LetterDecoder_OpeningFcn via varargin.
+%      stop.  All inputs are passed to MessageDecoderRank_OpeningFcn via varargin.
 %
 %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
 %      instance to run (singleton)".
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
-% Edit the above text to modify the response to help LetterDecoder
+% Edit the above text to modify the response to help MessageDecoderRank
 
-% Last Modified by GUIDE v2.5 20-Apr-2015 13:16:46
+% Last Modified by GUIDE v2.5 20-Apr-2015 20:12:58
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
                    'gui_Singleton',  gui_Singleton, ...
-                   'gui_OpeningFcn', @LetterDecoder_OpeningFcn, ...
-                   'gui_OutputFcn',  @LetterDecoder_OutputFcn, ...
+                   'gui_OpeningFcn', @MessageDecoderRank_OpeningFcn, ...
+                   'gui_OutputFcn',  @MessageDecoderRank_OutputFcn, ...
                    'gui_LayoutFcn',  [] , ...
                    'gui_Callback',   []);
 if nargin && ischar(varargin{1})
@@ -44,26 +44,26 @@ end
 % End initialization code - DO NOT EDIT
 
 
-% --- Executes just before LetterDecoder is made visible.
-function LetterDecoder_OpeningFcn(hObject, eventdata, handles, varargin)
+% --- Executes just before MessageDecoderRank is made visible.
+function MessageDecoderRank_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% varargin   command line arguments to LetterDecoder (see VARARGIN)
+% varargin   command line arguments to MessageDecoderRank (see VARARGIN)
 
-% Choose default command line output for LetterDecoder
+% Choose default command line output for MessageDecoderRank
 handles.output = hObject;
 
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes LetterDecoder wait for user response (see UIRESUME)
+% UIWAIT makes MessageDecoderRank wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
 
 % --- Outputs from this function are returned to the command line.
-function varargout = LetterDecoder_OutputFcn(hObject, eventdata, handles) 
+function varargout = MessageDecoderRank_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -73,13 +73,12 @@ function varargout = LetterDecoder_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 
-% --- Executes on button press in UploadButton.
-function UploadButton_Callback(hObject, eventdata, handles)
-% hObject    handle to UploadButton (see GCBO)
+% --- Executes on button press in DecodeButton.
+function DecodeButton_Callback(hObject, eventdata, handles)
+% hObject    handle to DecodeButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-I = imread(handles.BrowseText.Value);
-MessageDecoderFunc(handles);
+MessageDecoderRankFunc(handles);
 
 function BrowseText_Callback(hObject, eventdata, handles)
 % hObject    handle to BrowseText (see GCBO)
@@ -744,4 +743,26 @@ function EditZ_CreateFcn(hObject, eventdata, handles)
 %       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on slider movement.
+function slider1_Callback(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function slider1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
